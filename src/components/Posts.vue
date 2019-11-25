@@ -8,6 +8,8 @@
 
 <script>
 import SinglePost from './SinglePost'
+import { postService } from '../services/post-service'
+
 
 export default {
     components: {
@@ -16,9 +18,16 @@ export default {
 
     data() {
         return {
-            posts: [{title: 'test', body: 'nenenen'}]
+            posts: []
         }
-    }
+    },
+
+    created () {
+        postService.getPosts().then(response =>{
+            this.posts = response.data;
+      })
+      
+  },
     
 }
 </script>
