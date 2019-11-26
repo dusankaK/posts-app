@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <ul v-for="(post, index) in posts" :key="index">
-           <Single-post :post='post'></Single-post>
+           <Single-post :post='post' @deletePost="deletePost($event)"></Single-post>
         </ul>
     </div>
 </template>
@@ -28,6 +28,12 @@ export default {
       })
       
   },
+    methods: {
+        deletePost (post) {
+            let indexPost = this.posts.indexOf(post)
+            this.posts.splice(indexPost, 1)
+        }
+    }
     
 }
 </script>

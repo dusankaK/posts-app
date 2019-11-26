@@ -4,6 +4,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ post.title }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{ post.body }}</h6>
+                <button type="button" class="btn btn-danger" @click="$emit('deletePost', post)">Delete Post</button>
             </div>
         </div>
     </div>
@@ -11,9 +12,7 @@
 
 <script>
 export default {
-    
-    props: ['post']
-  
+    props: ['post'],
 }
 </script>
 
